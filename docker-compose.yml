@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:8.0.36
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - 5306:3306 # 5306 のところは利用したいポートに変えてください
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./conf.d:/etc/mysql/conf.d
+
+volumes:
+  data: {}
